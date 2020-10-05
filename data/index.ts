@@ -55,18 +55,21 @@ const emptyPostsArray = (): Array<Post & Providence> => [];
 const collectTags = (tags: Tag[]) =>
   emptyPostsArray().concat(...tags.map((tag) => postsByTag[tag]));
 
-// export const allPosts: Array<Post & Providence> = collectTags([
-//   "chronicles",
-//   "rumors",
-//   "uncategorised",
-//   "unofficial",
-// ]);
+export const allPosts: Array<Post & Providence> = collectTags([
+  "chronicles",
+  "rumors",
+  "uncategorised",
+  "unofficial",
+]);
 
 export const postSummariesForKeyword = (
   keyword: string,
   startingFrom: "newest" | "oldest",
   tags: Tag[]
 ) => {
+  if (tags === []) {
+    tags = ["chronicles", "rumors", "uncategorised", "unofficial"];
+  }
   return collectTags(tags)
     .flatMap(({ title, author, datePosted, content, source }) => {
       const postText = content?.text;

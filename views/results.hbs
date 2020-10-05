@@ -2,7 +2,7 @@
 
 <h1 class="results-title">{{total}} results for '{{searchterm}}'</h1>
 {{#if error}}
-  <em>A passing ghost gives you side-eye. Oh honey.</em>
+  <em>A passing ghost gives you side-eye. What were you looking for exactly?</em>
   <p>{{error}}</p>
 {{/if}}
 <p>Sorting features here</p>
@@ -11,7 +11,11 @@
     <li class="result-card">
       <div class="result-card__content">
         <a class="result-card__link" href="./post/{{source.file}}#post-{{source.index}}">
+          {{#if title}}
           <h2 class="result-card__title">{{title}}</h2>
+          {{else}}
+          <p class="result-card__reply">Reply Posting</p>
+          {{/if}}
           <p class="result-card__preview">{{{match}}}</p>
         </a>
       </div>

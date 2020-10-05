@@ -1,10 +1,10 @@
-// #f9e7bc
-// #dbc797
-// #b39b64
+// dark teal: #005555
+// light teal: #049696
 
 html,
 body {
   font-size: 16px;
+  font-family: Georgia, Times, "Times New Roman", serif;
   margin: 0;
   padding: 0;
   background-color: #f9e7bc;
@@ -68,15 +68,11 @@ body {
   font-size: 1.25rem;
 }
 
-.result-card,
-.thread-post {
+.result-card {
   margin: 0 0 10px;
   padding: 10px;
   list-style: none;
-  background-color: rgba(249, 231, 188, 0.6);
-}
-
-.result-card {
+  background-color: rgba(255, 249, 234, 0.75);
   border: 1px solid #b39b64;
   border-radius: 2px;
   font-size: 0;
@@ -89,16 +85,28 @@ body {
     &:hover,
     &:active,
     &:focus {
-      color: #005555;
+      color: #049696;
       text-decoration: underline;
+
+      & h2,
+      & p {
+        color: #049696;
+      }
     }
   }
 
   &__title {
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 600;
     margin: 0 0 10px;
     text-decoration: underline;
+  }
+
+  &__reply {
+    color: #005555;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0 0 5px;
   }
 
   &__date {
@@ -107,7 +115,7 @@ body {
   }
 
   &__author {
-    font-size: 0.875rem;
+    font-size: 1.125rem;
     font-weight: 500;
     margin: 5px 0 0;
   }
@@ -124,7 +132,7 @@ body {
 
   &__content {
     display: inline-block;
-    // border: 1px solid red;
+    // border: 1px solid #b39b64;
     width: 60%;
   }
 
@@ -140,6 +148,95 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.thread-post {
+  margin: 0 0 10px;
+  padding: 10px;
+  list-style: none;
+  background-color: rgba(255, 249, 234, 0.75);
+  border: 1px solid #b39b64;
+  border-radius: 2px;
+  font-size: 0;
+  box-shadow: 2px 2px 4px 0px rgb(119, 106, 74, 0.5);
+
+  .thread-post a {
+    text-decoration: none;
+    color: #552f00;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #049696;
+      text-decoration: underline;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #b39b64;
+  }
+
+  &__aside {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #b39b64;
+    padding: 10px 0;
+  }
+
+  &__author {
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%;
+    float: none;
+    padding: 0;
+    margin: 0 0 5px;
+
+    &-name,
+    &-byline,
+    &-join-date {
+      margin: 0;
+      padding: 0;
+    }
+
+    &-name {
+      padding-left: 10px;
+      font-weight: 600;
+      color: #005555;
+    }
+  }
+
+  &__date {
+    font-size: 1rem;
+    font-weight: 500;
+    width: 45%;
+    float: none;
+    padding: 0 0 0 10px;
+  }
+
+  &__content {
+    display: inline-block;
+    width: 100%;
+
+    &-text {
+      font-size: 1.125rem;
+      padding: 10px;
+      border-bottom: 1px solid #b39b64;
+    }
+  }
+
+  &__signature {
+    font-size: 1.125rem;
+    padding: 10px;
+    overflow: hidden;
+
+    & img {
+      max-width: 100%;
+    }
+  }
 }
 
 @media screen and (min-width: 480px) {
@@ -160,6 +257,30 @@ body {
     }
     &__aside {
       width: 29.25%;
+    }
+  }
+
+  .thread-post {
+    &__author {
+      width: 59%;
+      float: right;
+      text-align: right;
+      padding-right: 10px;
+      font-size: 1.125rem;
+      margin: 0;
+
+      &-name,
+      &-byline,
+      &-join-date {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    &__date {
+      width: 35%;
+      float: left;
+      padding-left: 10px;
+      font-size: 1.125rem;
     }
   }
 }

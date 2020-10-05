@@ -24,7 +24,12 @@ app.get("/results", (req: Request, res: Response) => {
   const rawSort = req.query.sort as string | undefined;
   const sort = rawSort === "oldest" ? rawSort : "newest";
 
-  const posts = postSummariesForKeyword(keyword, sort);
+  const posts = postSummariesForKeyword(keyword, sort, [
+    "chronicles",
+    "rumors",
+    "uncategorised",
+    "unofficial",
+  ]);
   res.render("results", {
     posts,
     searchterm: keyword,
