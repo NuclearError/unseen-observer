@@ -2,28 +2,33 @@
 
 <h1 class="results-title">{{total}} results for '{{searchterm}}'</h1>
 {{#if error}}
-  <em>A passing ghost gives you side-eye. What were you looking for exactly?</em>
+  <p><em>A passing ghost gives you side-eye. A mistake seems to have occurred. Judging by the ghost's disdainful gaze, they clearly assume that it is your fault.</em></p>
   <p>{{error}}</p>
 {{/if}}
-<p>Sorting features here</p>
-<ul class="post-list">
-  {{#each posts}}
-    <li class="result-card">
-      <div class="result-card__content">
-        <a class="result-card__link" href="./post/{{source.file}}#post-{{source.index}}">
-          {{#if title}}
-          <h2 class="result-card__title">{{title}}</h2>
-          {{else}}
-          <p class="result-card__reply">Reply Posting</p>
-          {{/if}}
-          <p class="result-card__preview">{{{match}}}</p>
-        </a>
-      </div>
-      <aside class="result-card__aside">
-        <div class="result-card__date">{{{datePosted.html}}}</div>
-        <h3 class="result-card__author">{{author}}</h3>
-      </aside>
-    </li>
-  {{/each}}
-</ul>
-<nav>Pagination to go here</nav>
+{{#if total}}
+  <p>Sorting features here</p>
+  <ul class="post-list">
+    {{#each posts}}
+      <li class="result-card">
+        <div class="result-card__content">
+          <a class="result-card__link" href="./post/{{source.file}}#post-{{source.index}}">
+            {{#if title}}
+            <h2 class="result-card__title">{{title}}</h2>
+            {{else}}
+            <p class="result-card__reply">Reply Posting</p>
+            {{/if}}
+            <p class="result-card__preview">{{{match}}}</p>
+          </a>
+        </div>
+        <aside class="result-card__aside">
+          <div class="result-card__date">{{shortDate}}</div>
+          <h3 class="result-card__author">{{author}}</h3>
+        </aside>
+      </li>
+    {{/each}}
+  </ul>
+  <nav>Pagination to go here</nav>
+{{else}}
+  <p><em>You feel a prickle on the back of your neck, as though someone is watching you fail to find what you are looking for. Their gaze feels judgemental. What were you searching for exactly?</em></p>
+{{/if}}
+

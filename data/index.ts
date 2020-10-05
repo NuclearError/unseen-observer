@@ -48,7 +48,7 @@ const postsByTag = {
   unofficial: sourcePosts("./unofficial.json", "unofficial"),
 };
 
-type Tag = keyof typeof postsByTag;
+export type Tag = keyof typeof postsByTag;
 
 const emptyPostsArray = (): Array<Post & Providence> => [];
 
@@ -80,11 +80,14 @@ export const postSummariesForKeyword = (
         return []; // Exclude post from results
       }
 
+      const shortDate = datePosted.text.split(",")[0];
+
       return [
         {
           title,
           author,
           datePosted,
+          shortDate,
           source,
           match: highlightMatch(postText, keyword),
         },

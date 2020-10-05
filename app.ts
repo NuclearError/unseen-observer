@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { postSummariesForKeyword, findThread } from "./data/index";
+import { postSummariesForKeyword, findThread, Tag } from "./data/index";
 
 const app = express();
 const port = 9013;
@@ -14,7 +14,7 @@ app.get("/", (_req: Request, res: Response) => {
 app.get("/results", (req: Request, res: Response) => {
   const keyword = req.query.keyword as string | undefined;
   if (!keyword) {
-    res.render("results", { error: "Please provide keyword" });
+    res.render("results", { error: "Please provide a keyword" });
     return;
   }
 
@@ -24,12 +24,9 @@ app.get("/results", (req: Request, res: Response) => {
   const rawSort = req.query.sort as string | undefined;
   const sort = rawSort === "oldest" ? rawSort : "newest";
 
-  const posts = postSummariesForKeyword(keyword, sort, [
-    "chronicles",
-    "rumors",
-    "uncategorised",
-    "unofficial",
-  ]);
+  const boop: Tag[] = ["chronicles"];
+
+  const posts = postSummariesForKeyword(keyword, sort, boop);
   res.render("results", {
     posts,
     searchterm: keyword,
