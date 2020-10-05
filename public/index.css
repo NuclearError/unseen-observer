@@ -1,0 +1,139 @@
+html,
+body {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: #f9e7bc;
+  color: #552f00;
+}
+
+body {
+  background-image: url("assets/bg.jpeg");
+  background-repeat: repeat;
+  padding: 15px 10px;
+}
+
+.search__form {
+  font-size: 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+}
+.search__label {
+  font-size: 1rem;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 10px;
+}
+.search__input {
+  width: 100%;
+  padding: 10px;
+  margin: 0 0 10px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-family: serif;
+  color: #552f00;
+  border-radius: 2px;
+  border: 2px solid #552f00;
+  background-color: rgba(255, 249, 236, 0.75);
+}
+.search__button {
+  width: 100%;
+  font-size: 1.125rem;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 2px;
+  font-family: serif;
+  color: #552f00;
+  background-color: rgba(249, 231, 188, 0.6);
+  border: 2px solid #b39b64;
+  cursor: pointer;
+}
+.search__button:hover, .search__button:active, .search__button:focus {
+  text-decoration: none;
+  border-color: #005555;
+  background: rgba(98, 196, 196, 0.45);
+}
+
+.results-title {
+  font-size: 1.25rem;
+}
+
+.result-card,
+.thread-post {
+  margin: 0 0 10px;
+  padding: 10px;
+  list-style: none;
+  background-color: rgba(249, 231, 188, 0.6);
+}
+
+.result-card {
+  border: 1px solid #b39b64;
+  border-radius: 2px;
+  font-size: 0;
+  box-shadow: 2px 2px 4px 0px rgba(119, 106, 74, 0.5);
+}
+.result-card__link {
+  text-decoration: none;
+  color: #552f00;
+}
+.result-card__link:hover, .result-card__link:active, .result-card__link:focus {
+  color: #005555;
+  text-decoration: underline;
+}
+.result-card__title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0 0 10px;
+  text-decoration: underline;
+}
+.result-card__date {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.result-card__author {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 5px 0 0;
+}
+.result-card__preview {
+  font-size: 1rem;
+  margin: 0;
+}
+.result-card__content, .result-card__aside {
+  vertical-align: top;
+}
+.result-card__content {
+  display: inline-block;
+  width: 60%;
+}
+.result-card__aside {
+  display: inline-block;
+  width: 38.75%;
+  text-align: right;
+}
+
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 480px) {
+  .result-card__content {
+    width: 65%;
+  }
+  .result-card__aside {
+    width: 34%;
+  }
+}
+@media screen and (min-width: 640px) {
+  .result-card__content {
+    width: 70%;
+  }
+  .result-card__aside {
+    width: 29.25%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

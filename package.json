@@ -1,0 +1,28 @@
+{
+  "name": "unseen-observer",
+  "version": "1.0.0",
+  "description": "A read-only archive of historical forum posts",
+  "main": "index.js",
+  "scripts": {
+    "build-client": "sass --no-source-maps index.scss public/index.css",
+    "dev": "concurrently -c magenta,green -n serve,style npm:watch-server npm:watch-styles",
+    "start": "ts-node app.ts",
+    "test": "test",
+    "watch-server": "nodemon -x ts-node app.ts",
+    "watch-styles": "sass --watch index.scss public/index.css"
+  },
+  "author": "Angela Cullen",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.7",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4",
+    "sass": "^1.26.10"
+  }
+}

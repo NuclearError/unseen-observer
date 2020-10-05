@@ -1,0 +1,29 @@
+<link rel='stylesheet' href='index.css' type='text/css' />
+<ul class="post-list">
+{{#each posts}}
+
+<li id="post-{{source.index}}">
+<article class="thread-post">
+  <div class="thread-post__date">{{{datePosted.html}}}</div>
+
+  {{#if title}}
+    <h1 class="thread-post__title">{{title}}</h1>
+  {{/if}}
+
+  <div class="thread-post__content">
+    <section class="thread-post__content-text">
+      {{{content.html}}}
+    </section>
+    <section class="thread-post__signature">
+      {{{signature.html}}}
+    </section>
+  </div>
+  <aside class="thread-post__aside">
+    <p class="thread-post__author">{{author}}</p>
+    <p class="thread-post__byline">{{byline}}</p>
+    <p class="thread-post__join-date">{{joinDate}}</p>
+  </aside>
+</article>
+</li>
+{{/each}}
+</ul>
