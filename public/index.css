@@ -14,17 +14,90 @@ body {
   padding: 15px 10px;
 }
 
+.error {
+  font-weight: 600;
+  color: #049696;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 768px;
+}
+.wrapper--search {
+  width: 80%;
+}
+.wrapper--results {
+  width: 90%;
+}
+.wrapper--thread {
+  width: 96%;
+}
+
+.title {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-variant: small-caps;
+  text-shadow: 0px 0px 1px #552f00;
+  color: #005555;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  font-size: 0;
+  width: 100%;
+}
+
 .search__form {
   font-size: 0;
   display: inline-block;
   width: 100%;
-  max-width: 400px;
+}
+.search__details {
+  font-size: 0;
+  display: inline-block;
+  width: 100%;
+}
+.search__summary {
+  color: #552f00;
+  background-color: rgba(249, 231, 188, 0.6);
+  border: 2px solid #b39b64;
+  font-size: 1.125rem;
+  margin: 0 0 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 10px;
+}
+.search__summary:hover, .search__summary:focus, .search__summary:active {
+  text-decoration: underline;
+}
+.search__fieldset {
+  border: 2px solid #b39b64;
+  display: inline-block;
+  padding: 0;
+  font-size: 0;
+  margin: 0 0 15px;
+  width: 100%;
+}
+.search__legend {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
 .search__label {
-  font-size: 1rem;
+  font-size: 1.125rem;
   display: inline-block;
   width: 100%;
   margin: 0 0 10px;
+}
+.search__label--checkbox {
+  margin: 0;
+  border: 1px solid blue;
+  width: 50%;
 }
 .search__input {
   width: 100%;
@@ -38,22 +111,32 @@ body {
   border: 2px solid #552f00;
   background-color: rgba(255, 249, 236, 0.75);
 }
+.search__input--checkbox {
+  width: auto;
+}
+.search__button-container {
+  text-align: center;
+}
 .search__button {
   width: 100%;
-  font-size: 1.125rem;
-  font-weight: 400;
+  margin: 0 auto;
+  font-size: 1.375rem;
+  font-weight: 600;
   padding: 10px;
   border-radius: 2px;
-  font-family: serif;
-  color: #552f00;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-variant: small-caps;
+  text-shadow: 0px 0px 1px #552f00;
+  color: #005555;
   background-color: rgba(249, 231, 188, 0.6);
   border: 2px solid #b39b64;
   cursor: pointer;
 }
 .search__button:hover, .search__button:active, .search__button:focus {
   text-decoration: none;
-  border-color: #005555;
-  background: rgba(98, 196, 196, 0.45);
+  border-color: #049696;
+  color: #005555;
+  background-color: rgba(255, 233, 180, 0.75);
 }
 
 .results-title {
@@ -207,6 +290,14 @@ body {
   }
 }
 @media screen and (min-width: 640px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .search__button {
+    width: 320px;
+  }
+
   .result-card__content {
     width: 70%;
   }

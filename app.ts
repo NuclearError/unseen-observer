@@ -14,7 +14,9 @@ app.get("/", (_req: Request, res: Response) => {
 app.get("/results", (req: Request, res: Response) => {
   const keyword = req.query.keyword as string | undefined;
   if (!keyword) {
-    res.render("results", { error: "Please provide a keyword" });
+    res.render("results", {
+      error: "Please provide a keyword to start your search.",
+    });
     return;
   }
 

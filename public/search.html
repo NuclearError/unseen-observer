@@ -1,14 +1,99 @@
 <link rel="stylesheet" href="index.css" type="text/css" />
 
-<form class="search__form" action="./results" method="get">
-  <label class="search__label" for="search">Keyword Search</label>
-  <input
-    class="search__input"
-    type="text"
-    id="search"
-    minlength="2"
-    name="keyword"
-  />
+<section class="wrapper wrapper--search">
+  <h1 class="title">Search the Archives 📜</h1>
+  <form class="search__form" action="./results" method="get">
+    <label class="search__label" for="search">Keyword Search</label>
+    <input
+      class="search__input"
+      type="text"
+      id="search"
+      minlength="2"
+      name="keyword"
+    />
+    <details class="search__details">
+      <summary class="search__summary">Advanced Search</summary>
 
-  <input class="search__button" type="submit" value="Search" />
-</form>
+      <fieldset class="search__fieldset">
+        <legend class="search__legend">Categories</legend>
+        <ul class="list">
+          <li>
+            <label
+              class="search__label search__label--checkbox"
+              for="categories-all"
+              >All posts</label
+            >
+            <input
+              class="search__input search__input--checkbox"
+              type="checkbox"
+              id="categories-all"
+              name="categories"
+              value="all"
+            />
+            <ul class="list">
+              <li>
+                <label
+                  class="search__label search__label--checkbox"
+                  for="categories-all"
+                  >Chronicles</label
+                >
+                <input
+                  class="search__input search__input--checkbox"
+                  type="checkbox"
+                  id="categories-chronicles"
+                  name="categories"
+                  value="chronicles"
+                />
+              </li>
+              <li>
+                <label
+                  class="search__label search__label--checkbox"
+                  for="categories-unofficial"
+                  >Unofficial publications</label
+                >
+                <input
+                  class="search__input search__input--checkbox"
+                  type="checkbox"
+                  id="categories-unofficial"
+                  name="categories"
+                  value="unofficial"
+                />
+              </li>
+              <li>
+                <label
+                  class="search__label search__label--checkbox"
+                  for="categories-rumours"
+                  >Whispered Rumors</label
+                >
+                <input
+                  class="search__input search__input--checkbox"
+                  type="checkbox"
+                  id="categories-rumours"
+                  name="categories"
+                  value="rumors"
+                />
+              </li>
+              <li>
+                <label
+                  class="search__label search__label--checkbox"
+                  for="categories-miscellaneous"
+                  >Miscellaneous</label
+                >
+                <input
+                  class="search__input search__input--checkbox"
+                  type="checkbox"
+                  id="categories-miscellaneous"
+                  name="categories"
+                  value="uncategorised"
+                />
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </fieldset>
+    </details>
+    <div class="search__button-container">
+      <input class="search__button" type="submit" value="Seek Answers ⚗️" />
+    </div>
+  </form>
+</section>
