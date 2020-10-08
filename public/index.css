@@ -50,6 +50,34 @@ body {
   font-size: 0;
   width: 100%;
 }
+.list--outer {
+  padding: 10px 2.5% 0;
+  width: 95%;
+}
+
+.list-item {
+  font-size: 0;
+}
+.list-item--outer label {
+  padding: 0 0 10px;
+  width: 57%;
+}
+.list-item--outer input {
+  position: relative;
+  top: 2px;
+}
+.list-item--inner {
+  text-indent: 0.5rem;
+  padding: 0 0 10px;
+}
+.list-item--inner label {
+  padding: 0;
+  width: 55%;
+}
+.list-item--inner input {
+  position: relative;
+  top: 0;
+}
 
 .search__form {
   font-size: 0;
@@ -60,6 +88,7 @@ body {
   font-size: 0;
   display: inline-block;
   width: 100%;
+  text-align: center;
 }
 .search__summary {
   color: #552f00;
@@ -74,19 +103,27 @@ body {
 .search__summary:hover, .search__summary:focus, .search__summary:active {
   text-decoration: underline;
 }
+.search__summary:focus, .search__summary:active, .search__summary[type=text]:focus, .search__summary[type=text]:active {
+  border: 2px solid #b39b64;
+  outline-width: 0;
+  outline: none;
+}
 .search__fieldset {
   border: 2px solid #b39b64;
   display: inline-block;
   padding: 0;
   font-size: 0;
+  text-align: left;
   margin: 0 0 15px;
   width: 100%;
 }
 .search__legend {
   font-size: 1.125rem;
   font-weight: 600;
-  margin: 0;
-  padding: 0;
+  margin: 0 0 0 5px;
+  padding: 5px 10px;
+  border: 2px double #b39b64;
+  background-color: rgba(249, 231, 188, 0.6);
 }
 .search__label {
   font-size: 1.125rem;
@@ -96,8 +133,8 @@ body {
 }
 .search__label--checkbox {
   margin: 0;
-  border: 1px solid blue;
-  width: 50%;
+  padding: 0;
+  cursor: pointer;
 }
 .search__input {
   width: 100%;
@@ -111,8 +148,17 @@ body {
   border: 2px solid #552f00;
   background-color: rgba(255, 249, 236, 0.75);
 }
+.search__input:focus, .search__input:active, .search__input[type=text]:focus, .search__input[type=text]:active {
+  color: #005555;
+  border: 2px solid #552f00;
+  box-shadow: 0 0 5px #049696;
+  outline-width: 0;
+  outline: none;
+}
 .search__input--checkbox {
   width: auto;
+  margin: 0 5px;
+  border-radius: 0;
 }
 .search__button-container {
   text-align: center;
@@ -139,8 +185,45 @@ body {
   background-color: rgba(255, 233, 180, 0.75);
 }
 
-.results-title {
+.results-sort__container {
+  padding: 10px;
+  font-size: 0;
+  text-align: center;
+}
+.results-sort__title-container {
+  display: block;
+  width: 100%;
+  font-size: 0;
+  padding-bottom: 10px;
+  float: left;
+}
+.results-sort__title {
   font-size: 1.25rem;
+  text-align: center;
+  margin: 0;
+}
+.results-sort__button {
+  cursor: pointer;
+  padding: 10px;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-variant: small-caps;
+  text-shadow: 0px 0px 1px #552f00;
+  color: #005555;
+  background-color: rgba(249, 231, 188, 0.6);
+  border: 2px solid #b39b64;
+}
+.results-sort__button:hover, .results-sort__button:active, .results-sort__button:focus {
+  text-decoration: none;
+  border-color: #049696;
+  color: #005555;
+  background-color: rgba(255, 233, 180, 0.75);
+}
+.results-sort__button--newest {
+  margin-right: 10px;
 }
 
 .result-card {
@@ -290,12 +373,46 @@ body {
   }
 }
 @media screen and (min-width: 640px) {
+  .search__button {
+    width: 320px;
+  }
+  .search__fieldset {
+    width: 72%;
+  }
+
+  .list-item--outer label {
+    width: 91.5%;
+  }
+  .list-item--inner label {
+    width: 90%;
+  }
+
+  .results-sort__container {
+    text-align: right;
+    padding: 10px 0;
+  }
+  .results-sort__title-container {
+    width: 70%;
+    height: 2.75rem;
+    overflow: hidden;
+    padding: 0;
+  }
+  .results-sort__title {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 928px) {
   .title {
     font-size: 3rem;
   }
 
-  .search__button {
-    width: 320px;
+  .search__fieldset {
+    width: 48.75%;
+    vertical-align: top;
+    margin-right: 10px;
+  }
+  .search__fieldset:last-child {
+    margin-right: 0;
   }
 
   .result-card__content {
@@ -303,6 +420,13 @@ body {
   }
   .result-card__aside {
     width: 29.25%;
+  }
+
+  .list-item--outer label {
+    width: 92%;
+  }
+  .list-item--inner label {
+    width: 90%;
   }
 
   .thread-post__author {

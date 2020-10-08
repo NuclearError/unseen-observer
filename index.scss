@@ -55,6 +55,41 @@ body {
   display: inline-block;
   font-size: 0;
   width: 100%;
+
+  &--outer {
+    padding: 10px 2.5% 0;
+    width: 95%;
+  }
+}
+
+.list-item {
+  font-size: 0;
+
+  &--outer {
+    & label {
+      padding: 0 0 10px;
+      width: 57%;
+    }
+
+    & input {
+      position: relative;
+      top: 2px;
+    }
+  }
+  &--inner {
+    text-indent: 0.5rem;
+    padding: 0 0 10px;
+
+    & label {
+      padding: 0;
+      width: 55%;
+    }
+
+    & input {
+      position: relative;
+      top: 0;
+    }
+  }
 }
 
 .search {
@@ -68,6 +103,7 @@ body {
     font-size: 0;
     display: inline-block;
     width: 100%;
+    text-align: center;
   }
 
   &__summary {
@@ -85,6 +121,15 @@ body {
     &:active {
       text-decoration: underline;
     }
+
+    &:focus,
+    &:active,
+    &[type="text"]:focus,
+    &[type="text"]:active {
+      border: 2px solid #b39b64;
+      outline-width: 0;
+      outline: none;
+    }
   }
 
   &__fieldset {
@@ -92,6 +137,7 @@ body {
     display: inline-block;
     padding: 0;
     font-size: 0;
+    text-align: left;
     margin: 0 0 15px;
     width: 100%;
   }
@@ -99,8 +145,10 @@ body {
   &__legend {
     font-size: 1.125rem;
     font-weight: 600;
-    margin: 0;
-    padding: 0;
+    margin: 0 0 0 5px;
+    padding: 5px 10px;
+    border: 2px double #b39b64;
+    background-color: rgba(249, 231, 188, 0.6);
   }
 
   &__label {
@@ -111,8 +159,8 @@ body {
 
     &--checkbox {
       margin: 0;
-      border: 1px solid blue;
-      width: 50%;
+      padding: 0;
+      cursor: pointer;
     }
   }
 
@@ -128,8 +176,21 @@ body {
     border: 2px solid #552f00;
     background-color: rgba(255, 249, 236, 0.75);
 
+    &:focus,
+    &:active,
+    &[type="text"]:focus,
+    &[type="text"]:active {
+      color: #005555;
+      border: 2px solid #552f00;
+      box-shadow: 0 0 5px rgb(4 150 150);
+      outline-width: 0;
+      outline: none;
+    }
+
     &--checkbox {
       width: auto;
+      margin: 0 5px;
+      border-radius: 0;
     }
   }
 
@@ -163,8 +224,54 @@ body {
   }
 }
 
-.results-title {
-  font-size: 1.25rem;
+.results-sort {
+  &__container {
+    padding: 10px;
+    font-size: 0;
+    text-align: center;
+  }
+
+  &__title-container {
+    display: block;
+    width: 100%;
+    font-size: 0;
+    padding-bottom: 10px;
+    float: left;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__button {
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 2px;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-variant: small-caps;
+    text-shadow: 0px 0px 1px #552f00;
+    color: #005555;
+    background-color: rgba(249, 231, 188, 0.6);
+    border: 2px solid #b39b64;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      border-color: #049696;
+      color: #005555;
+      background-color: rgba(255, 233, 180, 0.75);
+    }
+
+    &--newest {
+      margin-right: 10px;
+    }
+  }
 }
 
 .result-card {
@@ -231,13 +338,11 @@ body {
 
   &__content {
     display: inline-block;
-    // border: 1px solid #b39b64;
     width: 60%;
   }
 
   &__aside {
     display: inline-block;
-    // border: 1px solid blue;
     width: 38.75%;
     text-align: right;
   }
@@ -350,12 +455,59 @@ body {
 }
 
 @media screen and (min-width: 640px) {
+  .search {
+    &__button {
+      width: 320px;
+    }
+    &__fieldset {
+      width: 72%;
+    }
+  }
+
+  .list-item {
+    &--outer {
+      & label {
+        width: 91.5%;
+      }
+    }
+    &--inner {
+      & label {
+        width: 90%;
+      }
+    }
+  }
+  .results-sort {
+    &__container {
+      text-align: right;
+      padding: 10px 0;
+    }
+
+    &__title-container {
+      width: 70%;
+      height: 2.75rem;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    &__title {
+      text-align: left;
+    }
+  }
+}
+
+@media screen and (min-width: 928px) {
   .title {
     font-size: 3rem;
   }
   .search {
-    &__button {
-      width: 320px;
+    &__fieldset {
+      width: 48.75%;
+      vertical-align: top;
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
   .result-card {
@@ -364,6 +516,19 @@ body {
     }
     &__aside {
       width: 29.25%;
+    }
+  }
+
+  .list-item {
+    &--outer {
+      & label {
+        width: 92%;
+      }
+    }
+    &--inner {
+      & label {
+        width: 90%;
+      }
     }
   }
 

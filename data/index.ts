@@ -50,6 +50,8 @@ const postsByTag = {
 
 export type Tag = keyof typeof postsByTag;
 
+export type Include = "post" | "title" | "author";
+
 const emptyPostsArray = (): Array<Post & Providence> => [];
 
 const collectTags = (tags: Tag[]) =>
@@ -65,14 +67,23 @@ export const allPosts: Array<Post & Providence> = collectTags([
 export const postSummariesForKeyword = (
   keyword: string,
   startingFrom: "newest" | "oldest",
-  tags: Tag[]
+  tags: Tag[],
+  include: Include
 ) => {
   if (tags === []) {
     tags = ["chronicles", "rumors", "uncategorised", "unofficial"];
   }
   return collectTags(tags)
     .flatMap(({ title, author, datePosted, content, source }) => {
-      const postText = content?.text;
+      let postText;
+      if (include === "post") {
+        postText = content?.text;
+      } else if (include === "title") {
+        postText = title;
+      } else if (include === "author") {
+        postText = author;
+      } else postText = content?.text;
+
       if (
         !postText ||
         !postText.toLowerCase().includes(keyword.toLowerCase())

@@ -10,28 +10,30 @@
       id="search"
       minlength="2"
       name="keyword"
+      value="Riven Hills"
     />
     <details class="search__details">
       <summary class="search__summary">Advanced Search</summary>
 
       <fieldset class="search__fieldset">
         <legend class="search__legend">Categories</legend>
-        <ul class="list">
-          <li>
+        <ul class="list list--outer">
+          <li class="list-item list-item--outer">
             <label
               class="search__label search__label--checkbox"
               for="categories-all"
               >All posts</label
             >
             <input
+              checked
               class="search__input search__input--checkbox"
               type="checkbox"
               id="categories-all"
               name="categories"
               value="all"
             />
-            <ul class="list">
-              <li>
+            <ul class="list list--inner">
+              <li class="list-item list-item--inner">
                 <label
                   class="search__label search__label--checkbox"
                   for="categories-all"
@@ -45,7 +47,7 @@
                   value="chronicles"
                 />
               </li>
-              <li>
+              <li class="list-item list-item--inner">
                 <label
                   class="search__label search__label--checkbox"
                   for="categories-unofficial"
@@ -59,7 +61,7 @@
                   value="unofficial"
                 />
               </li>
-              <li>
+              <li class="list-item list-item--inner">
                 <label
                   class="search__label search__label--checkbox"
                   for="categories-rumours"
@@ -73,7 +75,7 @@
                   value="rumors"
                 />
               </li>
-              <li>
+              <li class="list-item list-item--inner">
                 <label
                   class="search__label search__label--checkbox"
                   for="categories-miscellaneous"
@@ -88,6 +90,53 @@
                 />
               </li>
             </ul>
+          </li>
+        </ul>
+      </fieldset>
+
+      <fieldset class="search__fieldset">
+        <legend class="search__legend">Look for keyword in ...</legend>
+        <ul class="list list--outer">
+          <li class="list-item list-item--outer">
+            <label class="search__label search__label--checkbox" for="post-text"
+              >Post text</label
+            >
+            <input
+              checked
+              class="search__input search__input--checkbox"
+              type="radio"
+              id="post-text"
+              name="include"
+              value="post"
+            />
+          </li>
+          <li class="list-item list-item--outer">
+            <label
+              class="search__label search__label--checkbox"
+              for="title-text"
+              >Title text</label
+            >
+            <input
+              class="search__input search__input--checkbox"
+              type="radio"
+              id="title-text"
+              name="include"
+              value="title"
+            />
+          </li>
+          <li class="list-item list-item--outer">
+            <label
+              class="search__label search__label--checkbox"
+              for="author-name"
+              >Author name</label
+            >
+            <input
+              class="search__input search__input--checkbox"
+              type="radio"
+              id="author-name"
+              name="include"
+              value="author"
+            />
           </li>
         </ul>
       </fieldset>

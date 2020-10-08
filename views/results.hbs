@@ -1,14 +1,21 @@
 <link rel='stylesheet' href='index.css' type='text/css' />
 
 <section class="wrapper wrapper--results">
-
-<h1 class="results-title">{{total}} results for '{{searchterm}}'</h1>
 {{#if error}}
   <p><em>A passing ghost gives you side-eye. A mistake seems to have occurred. Judging by the ghost's disdainful gaze, they clearly assume that it is your fault.</em></p>
   <p class="error">{{error}}</p>
 {{/if}}
 {{#if total}}
-  <p>Sorting features here</p>
+  <section class="results-sort__container">
+    <div class="results-sort__title-container">
+      <h1 class="results-sort__title">{{total}} results for '{{searchterm}}'</h1>
+    </div>
+
+    <form action="./results" method="get">
+      <input class="results-sort__button results-sort__button--newest" type="submit" name="sort" value="newest" />
+      <input class="results-sort__button results-sort__button--oldest" type="submit" name="sort" value="oldest" />
+    </form>
+  </section>
   <ul class="post-list">
     {{#each posts}}
       <li class="result-card">
@@ -31,6 +38,9 @@
   </ul>
   <nav>Pagination to go here</nav>
 {{else}}
+  {{#if searchterm}}
+  <h1 class="results-sort__title">Nothing pertaining to '{{searchterm}}' could be found.</h1>
+  {{/if}}
   <p><em>Your search appears to have returned no results. What were you searching for exactly?</em></p>
 {{/if}}
 

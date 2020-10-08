@@ -1,5 +1,10 @@
 import express, { Request, Response } from "express";
-import { postSummariesForKeyword, findThread, Tag } from "./data/index";
+import {
+  postSummariesForKeyword,
+  findThread,
+  Tag,
+  Include,
+} from "./data/index";
 
 const app = express();
 const port = 9013;
@@ -12,6 +17,7 @@ app.get("/", (_req: Request, res: Response) => {
 });
 
 app.get("/results", (req: Request, res: Response) => {
+  console.log("req.query = ", req.query);
   const keyword = req.query.keyword as string | undefined;
   if (!keyword) {
     res.render("results", {
@@ -20,15 +26,38 @@ app.get("/results", (req: Request, res: Response) => {
     return;
   }
 
+  const rawInclude: Include | undefined = req.query.include as
+    | Include
+    | undefined;
+
   // If you want to sort by multiple aspects, rawSort type
   // should be a string or array, instead of string or undefined.
   // You would then need to loop over that array and process it accordingly.
   const rawSort = req.query.sort as string | undefined;
   const sort = rawSort === "oldest" ? rawSort : "newest";
+  const rawCategories = req.query.categories as any;
 
-  const boop: Tag[] = ["chronicles"];
+  const allCategories: Tag[] = [
+    "chronicles",
+    "unofficial",
+    "rumors",
+    "uncategorised",
+  ];
+  let categories;
+  if (!rawCategories) {
+    console.log("RawCategories are broken");
+    categories = allCategories;
+  } else if (typeof rawCategories === "string") {
+    categories = [rawCategories];
+  } else categories = rawCategories;
 
-  const posts = postSummariesForKeyword(keyword, sort, boop);
+  if (categories.includes("all")) {
+    categories = allCategories;
+  }
+
+  const include = req.query.include as Include;
+
+  const posts = postSummariesForKeyword(keyword, sort, categories, include);
   res.render("results", {
     posts,
     searchterm: keyword,
