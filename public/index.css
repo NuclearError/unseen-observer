@@ -28,9 +28,11 @@ body {
 }
 .wrapper--results {
   width: 90%;
+  position: relative;
 }
 .wrapper--thread {
   width: 96%;
+  position: relative;
 }
 
 .title {
@@ -183,6 +185,9 @@ body {
   border-color: #049696;
   color: #005555;
   background-color: rgba(255, 233, 180, 0.75);
+  box-shadow: 0 0 5px #049696;
+  outline-width: 0;
+  outline: none;
 }
 
 .results-sort__container {
@@ -201,6 +206,9 @@ body {
   font-size: 1.25rem;
   text-align: center;
   margin: 0;
+}
+.results-sort__form[data-sort=newest] > .results-sort__button--newest, .results-sort__form[data-sort=oldest] > .results-sort__button--oldest {
+  border-color: #005555;
 }
 .results-sort__button {
   cursor: pointer;
@@ -221,6 +229,9 @@ body {
   border-color: #049696;
   color: #005555;
   background-color: rgba(255, 233, 180, 0.75);
+  box-shadow: 0 0 5px #049696;
+  outline-width: 0;
+  outline: none;
 }
 .results-sort__button--newest {
   margin-right: 10px;
@@ -283,6 +294,43 @@ body {
   display: inline-block;
   width: 38.75%;
   text-align: right;
+}
+
+.back-to-top__wrapper {
+  text-align: right;
+  position: absolute;
+  top: 100vh;
+  right: -1rem;
+  bottom: 0;
+  pointer-events: none;
+}
+.back-to-top__button {
+  cursor: pointer;
+  padding: 3px 7px;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 2px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-variant: small-caps;
+  text-shadow: 0px 0px 2px #552f00;
+  color: #005555;
+  background-color: rgba(249, 231, 188, 0.8);
+  border: 2px solid #005555;
+  text-decoration: none;
+  position: fixed;
+  position: sticky;
+  pointer-events: all;
+  top: calc(100vh - 4.5rem);
+}
+.back-to-top__button:hover, .back-to-top__button:active, .back-to-top__button:focus {
+  text-decoration: none;
+  border-color: #049696;
+  color: #005555;
+  background-color: rgba(255, 233, 180, 0.9);
+  box-shadow: 0 0 5px #049696;
+  outline-width: 0;
+  outline: none;
 }
 
 .post-list {
@@ -380,6 +428,10 @@ body {
     width: 72%;
   }
 
+  .back-to-top__wrapper {
+    right: -2rem;
+  }
+
   .list-item--outer label {
     width: 91.5%;
   }
@@ -413,6 +465,10 @@ body {
   }
   .search__fieldset:last-child {
     margin-right: 0;
+  }
+
+  .back-to-top__wrapper {
+    right: -4.25rem;
   }
 
   .result-card__content {

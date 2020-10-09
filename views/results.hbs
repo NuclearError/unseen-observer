@@ -1,6 +1,7 @@
 <link rel='stylesheet' href='index.css' type='text/css' />
 
 <section class="wrapper wrapper--results">
+<a id="page-top"></a>
 {{#if error}}
   <p><em>A passing ghost gives you side-eye. A mistake seems to have occurred. Judging by the ghost's disdainful gaze, they clearly assume that it is your fault.</em></p>
   <p class="error">{{error}}</p>
@@ -8,13 +9,27 @@
 {{#if total}}
   <section class="results-sort__container">
     <div class="results-sort__title-container">
-      <h1 class="results-sort__title">{{total}} results for '{{searchterm}}'</h1>
+      <h1 class="results-sort__title">{{total}} results for '{{searchterm}}' 📜</h1>
     </div>
 
-    <form action="./results" method="get">
-      <input class="results-sort__button results-sort__button--newest" type="submit" name="sort" value="newest" />
-      <input class="results-sort__button results-sort__button--oldest" type="submit" name="sort" value="oldest" />
+    <form class="results-sort__form" action="./results" method="get" data-sort={{sort}}>
+      <input 
+        class="results-sort__button results-sort__button--newest" 
+        type="submit" 
+        name="sort" 
+        value="newest"
+      />
+      <input
+        class="results-sort__button results-sort__button--oldest" 
+        type="submit" 
+        name="sort" 
+        value="oldest"
+      />
+      {{#each preserved_parameters}}
+      <input type="hidden" name={{name}} value="{{value}}" />
+      {{/each}}
     </form>
+
   </section>
   <ul class="post-list">
     {{#each posts}}
@@ -37,11 +52,14 @@
     {{/each}}
   </ul>
   <nav>Pagination to go here</nav>
+  <div class="back-to-top__wrapper">
+    <a class="back-to-top__button" href="#page-top" aria-label="Return to the top" title="Return to the top">☝️</a>
+  </div>
 {{else}}
   {{#if searchterm}}
   <h1 class="results-sort__title">Nothing pertaining to '{{searchterm}}' could be found.</h1>
   {{/if}}
-  <p><em>Your search appears to have returned no results. What were you searching for exactly?</em></p>
+  <p><em>Your search appears to have returned no results.</em> 🕷️</p>
 {{/if}}
 
 </section>

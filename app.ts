@@ -62,6 +62,13 @@ app.get("/results", (req: Request, res: Response) => {
     posts,
     searchterm: keyword,
     total: posts.length,
+    sort,
+    preserved_parameters: Object.entries(req.query)
+      .filter(([name]) => name !== "sort")
+      .map(([name, value]) => ({
+        name,
+        value,
+      })),
   });
 });
 

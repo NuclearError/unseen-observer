@@ -32,10 +32,12 @@ body {
 
   &--results {
     width: 90%;
+    position: relative;
   }
 
   &--thread {
     width: 96%;
+    position: relative;
   }
 }
 
@@ -220,6 +222,9 @@ body {
       border-color: #049696;
       color: #005555;
       background-color: rgba(255, 233, 180, 0.75);
+      box-shadow: 0 0 5px rgb(4 150 150);
+      outline-width: 0;
+      outline: none;
     }
   }
 }
@@ -245,6 +250,11 @@ body {
     margin: 0;
   }
 
+  &__form[data-sort="newest"] > &__button--newest,
+  &__form[data-sort="oldest"] > &__button--oldest {
+    border-color: #005555;
+  }
+
   &__button {
     cursor: pointer;
     padding: 10px;
@@ -266,6 +276,9 @@ body {
       border-color: #049696;
       color: #005555;
       background-color: rgba(255, 233, 180, 0.75);
+      box-shadow: 0 0 5px rgb(4 150 150);
+      outline-width: 0;
+      outline: none;
     }
 
     &--newest {
@@ -345,6 +358,55 @@ body {
     display: inline-block;
     width: 38.75%;
     text-align: right;
+  }
+}
+
+.back-to-top {
+  &__wrapper {
+    text-align: right;
+    position: absolute;
+    top: 100vh;
+    right: -1rem;
+    bottom: 0;
+    pointer-events: none;
+  }
+  &__button {
+    cursor: pointer;
+    padding: 3px 7px;
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 2px;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-variant: small-caps;
+    text-shadow: 0px 0px 2px #552f00;
+    color: #005555;
+    background-color: rgba(249, 231, 188, 0.8);
+    border: 2px solid #005555;
+    text-decoration: none;
+
+    // `fixed` is fallback when `sticky` not supported
+    position: fixed;
+    // preferred positioning, requires prefixing for most support, and not supported on Safari
+    // @link https://caniuse.com/#search=position%3A%20sticky
+    position: sticky;
+    // reinstate clicks
+    pointer-events: all;
+    // achieves desired positioning within the viewport
+    // relative to the top of the viewport once `sticky` takes over, or always if `fixed` fallback is used
+    top: calc(100vh - 4.5rem);
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      border-color: #049696;
+      color: #005555;
+      background-color: rgba(255, 233, 180, 0.9);
+      box-shadow: 0 0 5px rgb(4 150 150);
+      outline-width: 0;
+      outline: none;
+    }
   }
 }
 
@@ -464,6 +526,12 @@ body {
     }
   }
 
+  .back-to-top {
+    &__wrapper {
+      right: -2rem;
+    }
+  }
+
   .list-item {
     &--outer {
       & label {
@@ -510,6 +578,13 @@ body {
       }
     }
   }
+
+  .back-to-top {
+    &__wrapper {
+      right: -4.25rem;
+    }
+  }
+
   .result-card {
     &__content {
       width: 70%;
