@@ -1,65 +1,74 @@
-<link rel='stylesheet' href='index.css' type='text/css' />
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unseen Observer</title>
+    <link rel="stylesheet" href="index.css" type="text/css" />
+  </head>
+  <body>
 
-<section class="wrapper wrapper--results">
-<a id="page-top"></a>
-{{#if error}}
-  <p><em>A passing ghost gives you side-eye. A mistake seems to have occurred. Judging by the ghost's disdainful gaze, they clearly assume that it is your fault.</em></p>
-  <p class="error">{{error}}</p>
-{{/if}}
-{{#if total}}
-  <section class="results-sort__container">
-    <div class="results-sort__title-container">
-      <h1 class="results-sort__title">{{total}} results for '{{searchterm}}' 📜</h1>
-    </div>
-
-    <form class="results-sort__form" action="./results" method="get" data-sort={{sort}}>
-      <input 
-        class="results-sort__button results-sort__button--newest" 
-        type="submit" 
-        name="sort" 
-        value="newest"
-      />
-      <input
-        class="results-sort__button results-sort__button--oldest" 
-        type="submit" 
-        name="sort" 
-        value="oldest"
-      />
-      {{#each preserved_parameters}}
-      <input type="hidden" name={{name}} value="{{value}}" />
-      {{/each}}
-    </form>
-
-  </section>
-  <ul class="post-list">
-    {{#each posts}}
-      <li class="result-card">
-        <div class="result-card__content">
-          <a class="result-card__link" href="./post/{{source.file}}#post-{{source.index}}">
-            {{#if title}}
-            <h2 class="result-card__title">{{title}}</h2>
-            {{else}}
-            <p class="result-card__reply">Reply Posting</p>
-            {{/if}}
-            <p class="result-card__preview">{{{match}}}</p>
-          </a>
+    <section class="wrapper wrapper--results">
+    <a id="page-top"></a>
+    {{#if error}}
+      <p><em>A passing ghost gives you side-eye. A mistake seems to have occurred. Judging by the ghost's disdainful gaze, they clearly assume that it is your fault.</em></p>
+      <p class="error">{{error}}</p>
+    {{/if}}
+    {{#if total}}
+      <section class="results-sort__container">
+        <div class="results-sort__title-container">
+          <h1 class="results-sort__title">{{total}} results for '{{searchterm}}' 📜</h1>
         </div>
-        <aside class="result-card__aside">
-          <div class="result-card__date">{{shortDate}}</div>
-          <h3 class="result-card__author">{{author}}</h3>
-        </aside>
-      </li>
-    {{/each}}
-  </ul>
-  <nav>Pagination to go here</nav>
-  <div class="back-to-top__wrapper">
-    <a class="back-to-top__button" href="#page-top" aria-label="Return to the top" title="Return to the top">☝️</a>
-  </div>
-{{else}}
-  {{#if searchterm}}
-  <h1 class="results-sort__title">Nothing pertaining to '{{searchterm}}' could be found.</h1>
-  {{/if}}
-  <p><em>Your search appears to have returned no results.</em> 🕷️</p>
-{{/if}}
 
-</section>
+        <form class="results-sort__form" action="./results" method="get" data-sort={{sort}}>
+          <input 
+            class="results-sort__button results-sort__button--newest" 
+            type="submit" 
+            name="sort" 
+            value="newest"
+          />
+          <input
+            class="results-sort__button results-sort__button--oldest" 
+            type="submit" 
+            name="sort" 
+            value="oldest"
+          />
+          {{#each preserved_parameters}}
+          <input type="hidden" name={{name}} value="{{value}}" />
+          {{/each}}
+        </form>
+
+      </section>
+      <ul class="post-list">
+        {{#each posts}}
+          <li class="result-card">
+            <div class="result-card__content">
+              <a class="result-card__link" href="./post/{{source.file}}#post-{{source.index}}">
+                {{#if title}}
+                <h2 class="result-card__title">{{title}}</h2>
+                {{else}}
+                <p class="result-card__reply">Reply Posting</p>
+                {{/if}}
+                <p class="result-card__preview">{{{match}}}</p>
+              </a>
+            </div>
+            <aside class="result-card__aside">
+              <div class="result-card__date">{{shortDate}}</div>
+              <h3 class="result-card__author">{{author}}</h3>
+            </aside>
+          </li>
+        {{/each}}
+      </ul>
+      <nav>Pagination to go here</nav>
+      <div class="back-to-top__wrapper">
+        <a class="back-to-top__button" href="#page-top" aria-label="Return to the top" title="Return to the top">☝️</a>
+      </div>
+    {{else}}
+      {{#if searchterm}}
+      <h1 class="results-sort__title">Nothing pertaining to '{{searchterm}}' could be found.</h1>
+      {{/if}}
+      <p><em>Your search appears to have returned no results.</em> 🕷️</p>
+    {{/if}}
+
+    </section>
+  </body>
+</html>

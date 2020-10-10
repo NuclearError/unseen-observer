@@ -1,40 +1,50 @@
-<link rel='stylesheet' href='../index.css' type='text/css' />
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unseen Observer</title>
+    <link rel="stylesheet" href="index.css" type="text/css" />
+  </head>
+    <body>
 
-<section class="wrapper wrapper--thread">
-<a id="page-top"></a>
-<ul class="post-list">
-{{#each posts}}
+    <section class="wrapper wrapper--thread">
+    <a id="page-top"></a>
+    <ul class="post-list">
+    {{#each posts}}
 
-<li id="post-{{source.index}}">
-<article class="thread-post">
-  
-  {{#if title}}
-    <h1 class="thread-post__title">{{title}}</h1>
-  {{/if}}
-
-  <aside class="thread-post__aside">
-    <div class="thread-post__author">
-      <span class="thread-post__author-name">{{author}}</span>
-      {{#if byline}}
-      | <span class="thread-post__author-byline">{{byline}}</span>
+    <li id="post-{{source.index}}">
+    <article class="thread-post">
+      
+      {{#if title}}
+        <h1 class="thread-post__title">{{title}}</h1>
       {{/if}}
-    </div>
-    <div class="thread-post__date">{{{datePosted.html}}}</div>
-  </aside>
 
-  <div class="thread-post__content">
-    <section class="thread-post__content-text">
-      {{{content.html}}}
+      <aside class="thread-post__aside">
+        <div class="thread-post__author">
+          <span class="thread-post__author-name">{{author}}</span>
+          {{#if byline}}
+          | <span class="thread-post__author-byline">{{byline}}</span>
+          {{/if}}
+        </div>
+        <div class="thread-post__date">{{{datePosted.html}}}</div>
+      </aside>
+
+      <div class="thread-post__content">
+        <section class="thread-post__content-text">
+          {{{content.html}}}
+        </section>
+        <section class="thread-post__signature">
+          {{{signature.html}}}
+        </section>
+      </div>
+    </article>
+    </li>
+    {{/each}}
+    </ul>
+    <div class="back-to-top__wrapper">
+        <a class="back-to-top__button" href="#page-top" aria-label="Return to the top" title="Return to the top">☝️</a>
+      </div>
     </section>
-    <section class="thread-post__signature">
-      {{{signature.html}}}
-    </section>
-  </div>
-</article>
-</li>
-{{/each}}
-</ul>
-<div class="back-to-top__wrapper">
-    <a class="back-to-top__button" href="#page-top" aria-label="Return to the top" title="Return to the top">☝️</a>
-  </div>
-</section>
+
+  </body> 
+</html>

@@ -1,148 +1,158 @@
-<link rel="stylesheet" href="index.css" type="text/css" />
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unseen Observer</title>
+    <link rel="stylesheet" href="index.css" type="text/css" />
+  </head>
+  <body>
+    <section class="wrapper wrapper--search">
+      <h1 class="title">Search the Archives 📜</h1>
+      <form class="search__form" action="./results" method="get">
+        <label class="search__label" for="search">Keyword Search</label>
+        <input
+          class="search__input"
+          type="text"
+          id="search"
+          minlength="2"
+          name="keyword"
+          value="Riven Hills"
+        />
+        <details class="search__details">
+          <summary class="search__summary">Advanced Search</summary>
 
-<section class="wrapper wrapper--search">
-  <h1 class="title">Search the Archives 📜</h1>
-  <form class="search__form" action="./results" method="get">
-    <label class="search__label" for="search">Keyword Search</label>
-    <input
-      class="search__input"
-      type="text"
-      id="search"
-      minlength="2"
-      name="keyword"
-      value="Riven Hills"
-    />
-    <details class="search__details">
-      <summary class="search__summary">Advanced Search</summary>
-
-      <fieldset class="search__fieldset">
-        <legend class="search__legend">Categories</legend>
-        <ul class="list list--outer">
-          <li class="list-item list-item--outer">
-            <label
-              class="search__label search__label--checkbox"
-              for="categories-all"
-              >All posts</label
-            >
-            <input
-              checked
-              class="search__input search__input--checkbox"
-              type="checkbox"
-              id="categories-all"
-              name="categories"
-              value="all"
-            />
-            <ul class="list list--inner">
-              <li class="list-item list-item--inner">
+          <fieldset class="search__fieldset">
+            <legend class="search__legend">Categories</legend>
+            <ul class="list list--outer">
+              <li class="list-item list-item--outer">
                 <label
                   class="search__label search__label--checkbox"
                   for="categories-all"
-                  >Chronicles</label
+                  >All posts</label
                 >
                 <input
+                  checked
                   class="search__input search__input--checkbox"
                   type="checkbox"
-                  id="categories-chronicles"
+                  id="categories-all"
                   name="categories"
-                  value="chronicles"
+                  value="all"
                 />
+                <ul class="list list--inner">
+                  <li class="list-item list-item--inner">
+                    <label
+                      class="search__label search__label--checkbox"
+                      for="categories-all"
+                      >Chronicles</label
+                    >
+                    <input
+                      class="search__input search__input--checkbox"
+                      type="checkbox"
+                      id="categories-chronicles"
+                      name="categories"
+                      value="chronicles"
+                    />
+                  </li>
+                  <li class="list-item list-item--inner">
+                    <label
+                      class="search__label search__label--checkbox"
+                      for="categories-unofficial"
+                      >Unofficial publications</label
+                    >
+                    <input
+                      class="search__input search__input--checkbox"
+                      type="checkbox"
+                      id="categories-unofficial"
+                      name="categories"
+                      value="unofficial"
+                    />
+                  </li>
+                  <li class="list-item list-item--inner">
+                    <label
+                      class="search__label search__label--checkbox"
+                      for="categories-rumours"
+                      >Whispered Rumors</label
+                    >
+                    <input
+                      class="search__input search__input--checkbox"
+                      type="checkbox"
+                      id="categories-rumours"
+                      name="categories"
+                      value="rumors"
+                    />
+                  </li>
+                  <li class="list-item list-item--inner">
+                    <label
+                      class="search__label search__label--checkbox"
+                      for="categories-miscellaneous"
+                      >Miscellaneous</label
+                    >
+                    <input
+                      class="search__input search__input--checkbox"
+                      type="checkbox"
+                      id="categories-miscellaneous"
+                      name="categories"
+                      value="uncategorised"
+                    />
+                  </li>
+                </ul>
               </li>
-              <li class="list-item list-item--inner">
+            </ul>
+          </fieldset>
+
+          <fieldset class="search__fieldset">
+            <legend class="search__legend">Look for keyword in ...</legend>
+            <ul class="list list--outer">
+              <li class="list-item list-item--outer">
                 <label
                   class="search__label search__label--checkbox"
-                  for="categories-unofficial"
-                  >Unofficial publications</label
+                  for="post-text"
+                  >Post text</label
                 >
                 <input
+                  checked
                   class="search__input search__input--checkbox"
-                  type="checkbox"
-                  id="categories-unofficial"
-                  name="categories"
-                  value="unofficial"
+                  type="radio"
+                  id="post-text"
+                  name="include"
+                  value="post"
                 />
               </li>
-              <li class="list-item list-item--inner">
+              <li class="list-item list-item--outer">
                 <label
                   class="search__label search__label--checkbox"
-                  for="categories-rumours"
-                  >Whispered Rumors</label
+                  for="title-text"
+                  >Title text</label
                 >
                 <input
                   class="search__input search__input--checkbox"
-                  type="checkbox"
-                  id="categories-rumours"
-                  name="categories"
-                  value="rumors"
+                  type="radio"
+                  id="title-text"
+                  name="include"
+                  value="title"
                 />
               </li>
-              <li class="list-item list-item--inner">
+              <li class="list-item list-item--outer">
                 <label
                   class="search__label search__label--checkbox"
-                  for="categories-miscellaneous"
-                  >Miscellaneous</label
+                  for="author-name"
+                  >Author name</label
                 >
                 <input
                   class="search__input search__input--checkbox"
-                  type="checkbox"
-                  id="categories-miscellaneous"
-                  name="categories"
-                  value="uncategorised"
+                  type="radio"
+                  id="author-name"
+                  name="include"
+                  value="author"
                 />
               </li>
             </ul>
-          </li>
-        </ul>
-      </fieldset>
-
-      <fieldset class="search__fieldset">
-        <legend class="search__legend">Look for keyword in ...</legend>
-        <ul class="list list--outer">
-          <li class="list-item list-item--outer">
-            <label class="search__label search__label--checkbox" for="post-text"
-              >Post text</label
-            >
-            <input
-              checked
-              class="search__input search__input--checkbox"
-              type="radio"
-              id="post-text"
-              name="include"
-              value="post"
-            />
-          </li>
-          <li class="list-item list-item--outer">
-            <label
-              class="search__label search__label--checkbox"
-              for="title-text"
-              >Title text</label
-            >
-            <input
-              class="search__input search__input--checkbox"
-              type="radio"
-              id="title-text"
-              name="include"
-              value="title"
-            />
-          </li>
-          <li class="list-item list-item--outer">
-            <label
-              class="search__label search__label--checkbox"
-              for="author-name"
-              >Author name</label
-            >
-            <input
-              class="search__input search__input--checkbox"
-              type="radio"
-              id="author-name"
-              name="include"
-              value="author"
-            />
-          </li>
-        </ul>
-      </fieldset>
-    </details>
-    <div class="search__button-container">
-      <input class="search__button" type="submit" value="Seek Answers ⚗️" />
-    </div>
-  </form>
-</section>
+          </fieldset>
+        </details>
+        <div class="search__button-container">
+          <input class="search__button" type="submit" value="Seek Answers ⚗️" />
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
