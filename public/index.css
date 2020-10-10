@@ -412,6 +412,39 @@ body {
   max-width: 100%;
 }
 
+.footer {
+  text-align: center;
+}
+.footer__pagination {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 10px;
+}
+.footer__button {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.375rem;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 2px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-variant: small-caps;
+  text-shadow: 0px 0px 1px #552f00;
+  color: #005555;
+  background-color: rgba(249, 231, 188, 0.6);
+  border: 2px solid #b39b64;
+  cursor: pointer;
+}
+.footer__button:hover, .footer__button:active, .footer__button:focus {
+  text-decoration: none;
+  border-color: #049696;
+  color: #005555;
+  background-color: rgba(255, 233, 180, 0.75);
+  box-shadow: 0 0 5px #049696;
+  outline-width: 0;
+  outline: none;
+}
+
 @media screen and (min-width: 480px) {
   .result-card__content {
     width: 65%;

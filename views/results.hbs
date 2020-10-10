@@ -58,7 +58,6 @@
           </li>
         {{/each}}
       </ul>
-      <nav>Pagination to go here</nav>
       <div class="back-to-top__wrapper">
         <a class="back-to-top__button" href="#page-top" aria-label="Return to the top" title="Return to the top">☝️</a>
       </div>
@@ -68,7 +67,16 @@
       {{/if}}
       <p><em>Your search appears to have returned no results.</em> 🕷️</p>
     {{/if}}
-
+      <footer class="footer">
+        {{#if total}}
+          <nav class="footer__pagination">
+          Pagination to go here (eventually)
+          </nav>
+        {{/if}}
+        <a class="footer__button" href="/" title="Perform a new search" aria-label="Perform a new search">
+          New Search ⚗️
+        </a>
+      </footer>
     </section>
   </body>
 </html>
