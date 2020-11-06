@@ -95,6 +95,12 @@ body {
 }
 
 .search {
+  &__text {
+    font-size: 1.125rem;
+    margin: 10px 0;
+    text-align: center;
+  }
+
   &__form {
     font-size: 0;
     display: inline-block;
@@ -164,6 +170,12 @@ body {
       padding: 0;
       cursor: pointer;
     }
+
+    &--yra {
+      margin: 0;
+      padding: 0;
+      display: none;
+    }
   }
 
   &__input {
@@ -193,6 +205,23 @@ body {
       width: auto;
       margin: 0 5px;
       border-radius: 0;
+    }
+
+    &--yra {
+      font-size: 1.5rem;
+      padding: 0;
+      text-align: right;
+      font-weight: 600;
+    }
+
+    &--yra-label {
+      font-size: 1.125rem;
+      &:before {
+        content: "Search in";
+      }
+      &:after {
+        content: "YRA only";
+      }
     }
   }
 
@@ -580,6 +609,9 @@ body {
       & label {
         width: 90%;
       }
+    }
+    &--yra {
+      text-align: center;
     }
   }
   .results-sort {

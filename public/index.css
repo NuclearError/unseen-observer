@@ -81,6 +81,11 @@ body {
   top: 0;
 }
 
+.search__text {
+  font-size: 1.125rem;
+  margin: 10px 0;
+  text-align: center;
+}
 .search__form {
   font-size: 0;
   display: inline-block;
@@ -138,6 +143,11 @@ body {
   padding: 0;
   cursor: pointer;
 }
+.search__label--yra {
+  margin: 0;
+  padding: 0;
+  display: none;
+}
 .search__input {
   width: 100%;
   padding: 10px;
@@ -161,6 +171,21 @@ body {
   width: auto;
   margin: 0 5px;
   border-radius: 0;
+}
+.search__input--yra {
+  font-size: 1.5rem;
+  padding: 0;
+  text-align: right;
+  font-weight: 600;
+}
+.search__input--yra-label {
+  font-size: 1.125rem;
+}
+.search__input--yra-label:before {
+  content: "Search in";
+}
+.search__input--yra-label:after {
+  content: "YRA only";
 }
 .search__button-container {
   text-align: center;
@@ -470,6 +495,9 @@ body {
   }
   .list-item--inner label {
     width: 90%;
+  }
+  .list-item--yra {
+    text-align: center;
   }
 
   .results-sort__container {

@@ -55,7 +55,21 @@ app.get("/results", (req: Request, res: Response) => {
 
   const include = req.query.include as Include;
 
-  const posts = postSummariesForKeyword(keyword, sort, categories, include);
+  const rawYear = parseInt(req.query.year as string) - 1;
+  const doubleDigitYear = rawYear < 10 ? "0" + rawYear : rawYear;
+  const years = doubleDigitYear ? [doubleDigitYear?.toString()] : [];
+
+  console.log("rawYear = ", rawYear);
+  console.log("doubleDigitYear = ", doubleDigitYear);
+  console.log("years = ", years);
+
+  const posts = postSummariesForKeyword(
+    keyword,
+    sort,
+    categories,
+    include,
+    years
+  );
   res.render("results", {
     posts,
     searchterm: keyword,
