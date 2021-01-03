@@ -75,14 +75,11 @@ export const postSummariesForKeyword = (
   startingFrom: "newest" | "oldest",
   tags: Tag[],
   include: Include,
-  years: string[]
+  years: string[] | "all"
 ) => {
-  console.log("YEARS RECIEVED = ", years);
-  if (!years.length) {
-    console.log("Received no years, defaulting to all years");
+  if (!years.length || years === "all") {
     years = allYears;
   }
-  console.log("value of 'years' being used = ", years);
   if (tags === []) {
     tags = ["chronicles", "rumors", "uncategorised", "unofficial"];
   }
@@ -108,7 +105,6 @@ export const postSummariesForKeyword = (
       const exactYear = shortDate.substr(shortDate.length - 2);
 
       if (!years.includes(exactYear)) {
-        console.log("Excluding post from results b/c year");
         return []; // exclude post if it doesn't match date range given
       }
 

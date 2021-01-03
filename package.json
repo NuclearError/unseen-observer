@@ -4,7 +4,7 @@
   "description": "A read-only archive of historical forum posts",
   "main": "index.js",
   "scripts": {
-    "build-client": "sass --no-source-maps index.scss public/index.css",
+    "build-client": "sass index.scss public/index.css",
     "dev": "concurrently -c magenta,green -n serve,style npm:watch-server npm:watch-styles",
     "start": "ts-node app.ts",
     "test": "test",

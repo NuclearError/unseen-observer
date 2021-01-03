@@ -16,7 +16,46 @@ app.get("/", (_req: Request, res: Response) => {
   res.redirect("/search.html");
 });
 
+const redirectFancyParams = (req:any) => {
+  console.log("req.url = ", req.url)
+
+  const urlSections = req.url.split('&');
+  const yearSearchIsFalse = req.url.includes('single-year=no');
+  const singleYearSectionIndex = urlSections.findIndex((item:any) => item.includes("single-year"));
+
+  if (yearSearchIsFalse) {
+    // we're not searching by year, so remove all references to year from URL
+    urlSections.length = singleYearSectionIndex;
+  } else {
+    // we're searching by year, so only remove the single-year param
+    urlSections.splice(singleYearSectionIndex, 1);
+    const yearParamIndex = urlSections.findIndex((item:any) => item.includes("year"));
+    let yearParam = urlSections[yearParamIndex];
+    console.log("yearParam value = ", yearParam)
+    // if yearParam === 'year=', force it to say 'year=all'
+    if(yearParam === 'year=') {
+      urlSections[yearParamIndex] = 'year=all';
+    }
+  }
+
+  const newURL = urlSections.join('&')
+  console.log("newURL = ", newURL);
+  return newURL;
+}
+
 app.get("/results", (req: Request, res: Response) => {
+  const newURL = redirectFancyParams(req);
+  res.redirect(newURL);
+
+  // [
+  //   '/results?keyword=Riven+Hills',
+  //   'categories=chronicles',
+  //   'categories=unofficial',
+  //   'include=post',
+  //   'single-year=yes',
+  //   'year=10'
+  // ]
+
   const keyword = req.query.keyword as string | undefined;
   if (!keyword) {
     res.render("results", {
@@ -25,9 +64,7 @@ app.get("/results", (req: Request, res: Response) => {
     return;
   }
 
-  const rawInclude: Include | undefined = req.query.include as
-    | Include
-    | undefined;
+  const include = req.query.include as Include;
 
   // If you want to sort by multiple aspects, rawSort type
   // should be a string or array, instead of string or undefined.
@@ -53,15 +90,13 @@ app.get("/results", (req: Request, res: Response) => {
     categories = allCategories;
   }
 
-  const include = req.query.include as Include;
-
+  // ALL THE YEAR FUDGING
+  const searchByYear = req.query['single-year'];
   const rawYear = parseInt(req.query.year as string) - 1;
   const doubleDigitYear = rawYear < 10 ? "0" + rawYear : rawYear;
-  const years = doubleDigitYear ? [doubleDigitYear?.toString()] : [];
-
-  console.log("rawYear = ", rawYear);
-  console.log("doubleDigitYear = ", doubleDigitYear);
-  console.log("years = ", years);
+  const years = searchByYear === 'no' 
+    ? 'all' 
+    : (doubleDigitYear ? [doubleDigitYear?.toString()] : [])
 
   const posts = postSummariesForKeyword(
     keyword,

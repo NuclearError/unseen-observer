@@ -215,6 +215,15 @@ body {
   outline: none;
 }
 
+input#no:checked ~ .list--inner {
+  border: 2px solid green !important;
+  display: none;
+}
+
+input#no ~ .list--inner {
+  display: inline-block;
+}
+
 .results-sort__container {
   padding: 10px;
   font-size: 0;
