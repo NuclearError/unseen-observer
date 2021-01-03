@@ -8,7 +8,7 @@ npm run dev
 ## Transpile CSS
 
 ```
-npm build-client
+npm run build-client
 ```
 
 ## Run in production
