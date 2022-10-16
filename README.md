@@ -18,7 +18,7 @@ Go to Hostinger paid server page. Under "SSH Details" find the command which say
 The website files are located here: `root@{the-server-name-here}:/home/unseen-observer`.
 
 ```
-tmux a
+tmux a // or just tmux
 ctrl + c // to stop the app running
 git pull // to get the latest code
 npm start // to relaunch app
