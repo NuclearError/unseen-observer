@@ -83,7 +83,7 @@ export const postSummariesForKeyword = (
     years = allYears;
   }
   console.log("value of 'years' being used = ", years);
-  if (tags === []) {
+  if (tags.length === 0) {
     tags = ["chronicles", "rumors", "uncategorised", "unofficial"];
   }
   return collectTags(tags)
