@@ -13,12 +13,14 @@ npm run build-client
 
 ## Run in production
 
-Go to Hostinger paid server page. Under "SSH Details" find the command which says `ssh root@{server number}`. Connect directly to this via command line. 
+Go to Hostinger paid server page. Under "SSH Details" find the command which says `ssh root$
 
 The website files are located here: `root@{the-server-name-here}:/home/unseen-observer`.
 
+(Password is related to Exit Eden)
+
 ```
-tmux a // or just tmux
+tmux a
 ctrl + c // to stop the app running
 git pull // to get the latest code
 npm start // to relaunch app
