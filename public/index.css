@@ -163,7 +163,7 @@ body {
 .search__input:focus, .search__input:active, .search__input[type=text]:focus, .search__input[type=text]:active {
   color: #005555;
   border: 2px solid #552f00;
-  box-shadow: 0 0 5px #049696;
+  box-shadow: 0 0 5px rgb(4, 150, 150);
   outline-width: 0;
   outline: none;
 }
@@ -210,7 +210,7 @@ body {
   border-color: #049696;
   color: #005555;
   background-color: rgba(255, 233, 180, 0.75);
-  box-shadow: 0 0 5px #049696;
+  box-shadow: 0 0 5px rgb(4, 150, 150);
   outline-width: 0;
   outline: none;
 }
@@ -254,7 +254,7 @@ body {
   border-color: #049696;
   color: #005555;
   background-color: rgba(255, 233, 180, 0.75);
-  box-shadow: 0 0 5px #049696;
+  box-shadow: 0 0 5px rgb(4, 150, 150);
   outline-width: 0;
   outline: none;
 }
@@ -353,7 +353,7 @@ body {
   border-color: #049696;
   color: #005555;
   background-color: rgba(255, 233, 180, 0.9);
-  box-shadow: 0 0 5px #049696;
+  box-shadow: 0 0 5px rgb(4, 150, 150);
   outline-width: 0;
   outline: none;
 }
@@ -465,7 +465,7 @@ body {
   border-color: #049696;
   color: #005555;
   background-color: rgba(255, 233, 180, 0.75);
-  box-shadow: 0 0 5px #049696;
+  box-shadow: 0 0 5px rgb(4, 150, 150);
   outline-width: 0;
   outline: none;
 }
@@ -485,11 +485,9 @@ body {
   .search__fieldset {
     width: 72%;
   }
-
   .back-to-top__wrapper {
     right: -2rem;
   }
-
   .list-item--outer label {
     width: 91.5%;
   }
@@ -499,7 +497,6 @@ body {
   .list-item--yra {
     text-align: center;
   }
-
   .results-sort__container {
     text-align: right;
     padding: 10px 0;
@@ -518,7 +515,6 @@ body {
   .title {
     font-size: 3rem;
   }
-
   .search__fieldset {
     width: 48.75%;
     vertical-align: top;
@@ -527,25 +523,21 @@ body {
   .search__fieldset:last-child {
     margin-right: 0;
   }
-
   .back-to-top__wrapper {
     right: -4.25rem;
   }
-
   .result-card__content {
     width: 70%;
   }
   .result-card__aside {
     width: 29.25%;
   }
-
   .list-item--outer label {
     width: 92%;
   }
   .list-item--inner label {
     width: 90%;
   }
-
   .thread-post__author {
     width: 59%;
     float: right;
