@@ -13,11 +13,11 @@ npm run build-client
 
 ## Run in production
 
-Go to Hostinger paid server page. Under "SSH Details" find the command which says `ssh root$
+Go to [Hostinger paid server page](https://hpanel.hostinger.com/server). Under "SSH Access" find the command which says `ssh root$
 
 The website files are located here: `root@{the-server-name-here}:/home/unseen-observer`.
 
-(Password is related to Exit Eden)
+Password is related to Exit Eden. Note that the correct IP address should start with 141 and have about 11 digits.
 
 ```
 tmux a
