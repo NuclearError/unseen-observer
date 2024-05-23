@@ -13,7 +13,7 @@ npm run build-client
 
 ## Run in production
 
-Go to [Hostinger paid server page](https://hpanel.hostinger.com/server). Under "SSH Access" find the command which says `ssh root$
+Go to [Hostinger paid server page](https://hpanel.hostinger.com/server/178308/overview). Under "SSH Access" find the command which says `ssh root$
 
 The website files are located here: `root@{the-server-name-here}:/home/unseen-observer`.
 
